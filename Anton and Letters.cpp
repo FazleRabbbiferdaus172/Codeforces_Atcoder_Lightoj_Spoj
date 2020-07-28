@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 
 using namespace std;
-map<char,int>temp;
+
 int main()
 {
     string s;
