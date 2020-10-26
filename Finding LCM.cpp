@@ -13,22 +13,20 @@ int main()
     //fastio;
     int t;
     cin >> t;
-    for ( int c = 1 ; c <= t ; ++c)
+    for ( int c = 1 ; c <= t ; c++)
     {
         ll a,b,L;
-        cin >> a>>b>>L;
-        cout<< "Case" << c << ": ";
+        cin >>a>>b>>L;
+        cout<< "Case " << c << ": ";
         ll x = a*(b/__gcd(a,b));
         if(L%x != 0 ){
-            cout << "impossible\n";
+            cout << "impossible" << endl;
             continue;
         }
         ll ans = L/__gcd(x,L);
         while(1){
             ll g = __gcd(ans, x);
-            if(g == 1){
-                break;
-            }
+            if(g == 1) break;
             x/=g;
             ans*=g;
         }
