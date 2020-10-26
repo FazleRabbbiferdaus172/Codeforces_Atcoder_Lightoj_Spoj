@@ -1,2 +1,3 @@
 # codeforces
-Some solved problems of codeforces
+Some solved problems of codeforces, lightoj and spoj
+
