@@ -24,6 +24,7 @@ def ispowerof2(x):
 
 
 n = int(input())
+h = n
 prime = sieve(n)
 l = []
 
@@ -41,7 +42,7 @@ for i in prime:
 
     if n == 1:
         break
-if n > 1:
+if h > 1:
     maxp = max(l)
 else:
     maxp = 0
