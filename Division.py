@@ -1,25 +1,27 @@
-import math
-
-
-def factors(x, k):
-    result = []
-    i = 1
-    while i*i <= x:
-        if x % i == 0:
-            result.append(i)
-            if x//i != i:
-                result.append(x//i)
-                if (x//i) % k != 0:
-                    return x//i
-            elif x//i == i:
-                if (x//i) % k != 0:
-                    return x//i
-        i += 1
 
 
 for _ in range(int(input())):
     p, q = [int(x) for x in input().split()]
+    c = q
+    d = p
 
-    fac = factors(p, q)
+    i = 1
+    factor = []
+    while i*i <= q:
+        if q % i == 0:
+            factor.append(i)
+            if q//i != i:
+                factor.append(q//i)
+        i += 1
 
-    print(fac)
+    # print(factor)
+    factor.remove(1)
+    m = 1
+    for i in factor:
+        d = p
+        while d % c == 0:
+            d //= i
+        m = max(m, d)
+        #print(m, d)
+
+    print(m)
