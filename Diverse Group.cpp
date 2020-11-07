@@ -10,47 +10,52 @@ ll fact[N];
 ll i_fact[N];
 ll powm(ll x, ll p)
 {
-   ll ans = 1;
-   while (p)
-   {
-       if (p&1)
-       {
-           ans = ans*x%MOD;
-       }
-       x = x*x % MOD;
-       p >>= 1;
-   }
-   return ans;
+    ll ans = 1;
+    while (p)
+    {
+        if (p&1)
+        {
+            ans = ans*x%MOD;
+        }
+        x = x*x % MOD;
+        p >>= 1;
+    }
+    return ans;
 }
 void fact_ncr()
 {
     fact[0] = 1;
-    for(ll i=1;i<=N;++i)
+    for(ll i=1; i<N; ++i)
         fact[i]= i*fact[i-1] % MOD;
 
-    i_fact[N] = powm(fact[N],MOD-2);
+    i_fact[N-1] = powm(fact[N-1],MOD-2);
 
-    for(ll i=N-1;i>0;i--)
+    for(ll i=N-2; i>=0; i--)
         i_fact[i] = i_fact[i+1]*(i+1)%MOD;
 
-    i_fact[0] = 1;
+    //i_fact[0] = 1;
 
 
 }
 int main()
 {
+    fact_ncr();
     fastio;
     int t;
     cin >> t;
-    fact_ncr();
+    //fact_ncr();
     while (t--)
     {
         ll n,m,k;
         cin >> n >> m >>k;
-        if (n < k){
-        cout << 0 << endl;
-        continue;}
-        ll ans = powm(m,k) * fact[n] * i_fact[k] * i_fact[n-k] % MOD;
+        if (n < k)
+        {
+            cout << 0 << endl;
+            continue;
+        }
+        ll ans = powm(m,k) * fact[n] % MOD;
+        ans = ans * i_fact[k] % MOD;
+        ans = ans * i_fact[n-k] % MOD;
         //cout << powm(m,k) << " " << fact[n] << " " << i_fact[k] << " " << i_fact[n-k] << endl;
         cout << ans << endl;
 
