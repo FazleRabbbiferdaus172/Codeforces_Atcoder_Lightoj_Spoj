@@ -1,20 +1,18 @@
 for _ in range(int(input())):
     n, m = [int(x) for x in input().split()]
     l = []
-
+    c = 0
     for i in range(n):
         l.append([int(x) for x in input().split()])
-    nege = []
-    pose = []
+    alln = []
     for i in l:
         for j in i:
             if j < 0:
-                nege.append(-1*j)
-            else:
-                pose.append(j)
-    print(nege, pose)
+                c += 1
+            alln.append(abs(j))
+    #print(nege, pose)
 
-    if len(nege) % 2 == 0:
-        print(sum(pose) + sum(nege))
+    if c % 2 == 0:
+        print(sum(alln))
     else:
-        print(sum(pose) + sum(nege)-2*min(min(nege), min(pose)))
+        print(sum(alln) - 2*min(alln))
