@@ -28,3 +28,10 @@ for i in dv:
     # print(l)
 
 print("".join(l))
+
+# important thing to learn
+'''l = list(l)
+for i in reversed(dv):
+    #l = l[0:i:-1] + l[i:]
+    l = l[i-1::-1] + l[i:]
+    print(l)'''
