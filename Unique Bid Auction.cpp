@@ -7,31 +7,43 @@
 #define MOD ((int)1e9 + 7)
 
 using namespace std;
-int l[1000005+1]; //cause of this
-int found[1000005+1]; //cause of this
-int ind = -1;
-int maxx = 1e5+1;
-int n,t;
+
+//ll found[200005];
+int arr[N];
 int main()
 {
-    //fastio;
+    fastio;
+    ll t;
     cin >> t;
-    for (int x = 0; x <t ; x++)
+    for (ll x = 0; x <t ; ++x)
     {
+        ll n;
         cin >> n;
-        int ind = -1;
-        int maxx = 1e9;
-        for (int i = 1 ; i <= n ; i++)found[i] = 0;
+        ll l[1000006];
+        ll found[1000006];
+        ll tt = 10000005;
+        ll ind = -1;
+        for (ll i = 0 ; i < 100005+1 ; ++i)
+        {
+            found[l[i]] = 0;
+        }
+        for (ll i = 0 ; i < n ; ++i)
+        {
+            cin >> l[i];
+            found[l[i]]++;
+        }
 
-        for (int i = 1 ; i <=n ; i++)cin >> l[i],found[l[i]]++;
-
-        for (int i = 1 ; i <= n ; i++)
-            if (found[l[i]]==1 && l[i] < maxx)
-                ind = i,maxx = l[i];
-
-
+        for (ll i = 0 ; i < n ; ++i)
+        {
+            if (found[l[i]]==1 && l[i] < tt)
+            {
+                tt = l[i];
+                ind = i+1;
+            }
+        }
         cout << ind << endl;
     }
+    return 0;
 }
 
 
