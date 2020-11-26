@@ -33,7 +33,14 @@ def divisor(n):
     return dv
 
 
-#l = list_input()
-# print(divisor(25))
-# print(divisor(18))
-# print(float(1e-9))
+def binpow(a, n):
+    ans = 1
+    # MOD =
+    while n:
+        if n & 1:
+            ans *= a
+            #ans =  (ans * a) % MOD
+        a *= a
+        #a = (a*a) % MOD
+        n >>= 1
+    return ans
