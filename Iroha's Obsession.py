@@ -48,28 +48,15 @@ def binpow(a, n):
 
 n, k = map(int, input().split())
 l = list_input()
-l.sort()
+nai = False
+while not nai:
+    nai = True
+    xx = set(list(str(n)))
 
-xx = set(list(str(n)))
-# print(xx)
-nai = True
-
-for i in xx:
-    if int(i) in l:
-        nai = False
-        break
-
-if nai:
-    print(n)
-else:
-
-    while not nai:
+    for i in xx:
+        if int(i) in l:
+            nai = False
+            break
+    if not nai:
         n += 1
-        nai = True
-        xx = set(list(str(n)))
-
-        for i in xx:
-            if int(i) in l:
-                nai = False
-                break
-    print(n)
+print(n)
