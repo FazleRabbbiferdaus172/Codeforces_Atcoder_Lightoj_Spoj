@@ -8,9 +8,9 @@ for _ in range(n):
     l.append(x)
     r.append(y)
 
-l0, l1 = l.count(0), l.count(1)
+l0 = l.count(0)
 
-ans = min(l0, l1)
-r0, r1 = r.count(0), r.count(1)
-ans += min(r0, r1)
+ans = min(l0, n - l0)
+r0 = r.count(0)
+ans += min(r0, n - r0)
 print(ans)
