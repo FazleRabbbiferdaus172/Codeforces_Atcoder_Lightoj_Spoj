@@ -1,22 +1,15 @@
 n = int(input())
-d = {}
-
+s1, s2 = [], []
 for i in range(n):
     a, b = map(int, input().split())
-    if a not in d:
-        d[a] = [1, 0]
-    else:
-        d[a][0] += 1
-    if b != a:
-        if not b in d:
-            d[b] = [1, 1]
-        elif d[b][1] == 0:
-            d[b][1] = 1
-    else:
-        d[b] = [1, 0]
-ans = 0
-for i in d:
-    if d[i][1] == 0:
-        ans += d[i][0]
-print(d)
-print(ans)
+    s1 += [a]
+    s2 += [b]
+c = 0
+for i in range(n):
+    for j in range(n):
+
+        if s1[i] == s2[j] and i != j:
+            c += 1
+            break
+
+print(n - c)
