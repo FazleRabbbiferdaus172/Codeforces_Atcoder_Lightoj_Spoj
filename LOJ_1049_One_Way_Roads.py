@@ -1,18 +1,16 @@
 def dfs(r, p):
-    global cost, visit, adj, ans
+    global cost, visit, adj, ans, lst
 
     visit[r] = 1
-    if cost[p][r] != 0:
-        ans[0] += 0
-    else:
-        ans[0] += cost[r][p]
+    lst = r
+    if p != None:
+        if cost[p][r] == 0:
+            ans[0] += cost[r][p]
 
-    if cost[r][p] != 0:
-        ans[1] += 0
-    else:
-        ans[1] += cost[p][r]
+        if cost[r][p] == 0:
+            ans[1] += cost[p][r]
 
-    #print(r, "->", end="")
+    #print("cur:", r, "par:", p, "cost: ", *ans, "->")
     for i in adj[r]:
         if visit[i] != 1:
             dfs(i, r)
@@ -31,7 +29,14 @@ for tt in range(int(input())):
 
     # print(adj)
     # print(cost)
+    lst = None
     ans = [0, 0]
     visit = [0]*n
-    cc = dfs(0, n-1)
+    cc = dfs(0, None)
+    if cost[lst][0] == 0:
+        ans[0] += cost[0][lst]
+
+    if cost[0][lst] == 0:
+        ans[1] += cost[lst][0]
+    # print(*ans)
     print("Case {}: {}".format(tt+1, min(ans)))
