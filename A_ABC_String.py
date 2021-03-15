@@ -1,30 +1,46 @@
+def chk(b):
+    stk = []
+    ex = 0
+    for i in b:
+        if i == '(':
+            stk += '('
+        elif i == ')' and len(stk) > 0:
+            stk.pop(0)
+        else:
+            ex = 1
+    return stk, ex
+
 
 for t in range(int(input())):
     s = input()
     if s[0] == s[-1]:
         print("NO")
     else:
-        count = 0
+        countx, county = 0, 0
         x = s[0]
+        y = s[-1]
         b = ""
         for i in s:
             if i == x:
-                count += 1
+                countx += 1
                 b += '('
             else:
                 b += ')'
-
-        if len(s) - count != count:
+        c = ""
+        for i in s:
+            if i == y:
+                county += 1
+                b += ')'
+            else:
+                b += '('
+        if countx != len(s)//2 and county != len(s)//2:
             print("NO")
         else:
-            stk = []
-            for i in b:
-                if i == '(':
-                    stk += '('
-                else:
-                    stk.pop(0)
-            if len(stk):
+            stk1, ex1 = chk(b)
+            stk2, ex2 = chk(c)
+            if ex1 and ex2:
                 print("NO")
-                sys.exit(0)
+            elif len(stk1) and len(stk2):
+                print("NO")
             else:
                 print("YES")
