@@ -1,16 +1,3 @@
-def chk(b):
-    stk = []
-    ex = 0
-    for i in b:
-        if i == '(':
-            stk += '('
-        elif i == ')' and len(stk) > 0:
-            stk.pop(0)
-        else:
-            ex = 1
-    return stk, ex
-
-
 for t in range(int(input())):
     s = input()
     if s[0] == s[-1]:
