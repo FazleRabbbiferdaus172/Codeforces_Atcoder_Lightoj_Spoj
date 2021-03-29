@@ -44,3 +44,30 @@ def binpow(a, n):
         #a = (a*a) % MOD
         n >>= 1
     return ans
+
+
+def totien_fun(n):
+    ans = n
+    prime = prime(n)
+    '''
+    let, n = (p^a) * (q^b) * (r^c)  where n is a composite number and p,q,r are prime numbers
+    phi(n) = n* (p-1)/p * (q-1)/q * (r - 1)/r
+           = (n/(p*q*r))(p-1)(q-1)(r-1)
+    '''
+    for p in prime:
+        if p*p > n:
+            break
+
+        if n % p == 0:
+            ans /= p
+            ans *= p-1
+            while n % p == 0:
+                n /= p
+    '''
+    if n > 1 that means there is a prime number remaining that is why devide ans by n and multiply with (n-1)
+    '''
+    if n > 1:
+        ans /= n
+        ans *= n - 1
+
+    return n
