@@ -112,3 +112,6 @@ def totien_fun_till_n(n):
             phi[j] *= (p-1)
 
     return phi
+
+
+# print("{:.6f}".format(ans))
