@@ -70,6 +70,7 @@ def npm(n, m):
 def totien_fun(n):
     ans = n
     prime = prime(n)
+    #prime = []
     '''
     let, n = (p^a) * (q^b) * (r^c)  where n is a composite number and p,q,r are prime numbers
     phi(n) = n* (p-1)/p * (q-1)/q * (r - 1)/r
@@ -105,6 +106,7 @@ def totien_fun_till_n(n):
         phi += [i]
 
     prime = prime(n)
+    #prime = []
 
     for p in prime:
         for j in range(p, n+1, p):
@@ -112,6 +114,33 @@ def totien_fun_till_n(n):
             phi[j] *= (p-1)
 
     return phi
+
+
+def fact_till_n(n, MOD):
+    fact = [1]*(n+1)
+    for i in range(1, n+1):
+        fact[i] = (i * fact[i-1]) % MOD
+
+    return fact
+
+
+def inverse_fact_till_n(n, MOD):
+    fact = fact_till_n(n, MOD)
+    i_fact = [1]*(n+1)
+    i_fact[n] = binpow(fact[n], MOD - 2)
+
+    for i in range(n-1, -1, -1):
+        i_fact[i] = ((i+1)*i_fact[i+1]) % MOD
+
+    return i_fact
+
+
+def ncr_liner(n, r, MOD):
+    fact = fact_till_n(n, MOD)
+    i_fact = inverse_fact_till_n(n, MOD)
+    ncr = (fact[n] * (i_fact[r])) % MOD
+    ncr = ncr * (i_fact[n-r]) % MOD
+    return ncr
 
 
 # print("{:.6f}".format(ans))
