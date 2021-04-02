@@ -66,6 +66,7 @@ da = [[-1]*100 for i in range(100+1)]
 
 def ncr(n, m):
     '''
+    **Here m means r**
     ****Do not foget to intial 'da' everytime if there are multiple test cases*****
     based on formula: n C r + n C (r-1) = (n+1) C r then (n - 1) C r + (n - 1) C (r - 1) = n C r
     '''
@@ -144,9 +145,10 @@ def factorial_till_n(n, MOD):
 
 def inverse_factorial_till_n(n, MOD):
     '''
+    Params: n, MOD
     complexity: O(n)
     '''
-    fact = fact_till_n(n, MOD)
+    fact = factorial_till_n(n, MOD)
     i_fact = [1]*(n+1)
     i_fact[n] = binpow(fact[n], MOD - 2)
 
@@ -158,13 +160,17 @@ def inverse_factorial_till_n(n, MOD):
 
 def ncr_liner(n, r, MOD):
     '''
+    ***BETTER if you copy and paste in the main finction. if you call it everytime the time complecity won't be O(n)***
     complexity: O(n)
     '''
-    fact = fact_till_n(n, MOD)
-    i_fact = inverse_fact_till_n(n, MOD)
+    fact = factorial_till_n(n, MOD)
+    i_fact = inverse_factorial_till_n(n, MOD)
     ncr = (fact[n] * (i_fact[r])) % MOD
     ncr = ncr * (i_fact[n-r]) % MOD
     return ncr
 
 
 # print("{:.6f}".format(ans))
+
+
+print(ncr_liner(10, 5, 127))
