@@ -1,4 +1,5 @@
 import sys
+import math
 input = sys.stdin.readline
 
 
@@ -33,6 +34,20 @@ def divisor(n):
     return dv
 
 
+def lcm(*n):
+    ans = 1
+    for i in n:
+        ans *= (i//gcd(i, ans))
+    return ans
+
+
+def gcd(*n):
+    ans = 0
+    for i in n:
+        ans = math.gcd(ans, i)
+    return ans
+
+
 def binpow(a, n):
     ans = 1
     # MOD =
@@ -49,10 +64,10 @@ def binpow(a, n):
 da = [[-1]*100 for i in range(100+1)]
 
 
-def npm(n, m):
+def ncr(n, m):
     '''
-    ****Do not foget to intial da everytime if there are multiple test cases*****
-    based on formula: n C r + n C (r-1) = (n+1) C r.
+    ****Do not foget to intial 'da' everytime if there are multiple test cases*****
+    based on formula: n C r + n C (r-1) = (n+1) C r then (n - 1) C r + (n - 1) C (r - 1) = n C r
     '''
     global da
     if m == 1:
@@ -62,7 +77,7 @@ def npm(n, m):
     elif da[n-1][m] != -1 and da[n-1][m-1] != -1:
         ans = da[n-1][m] + da[n-1][m-1]
     else:
-        ans = npm(n-1, m) + npm(n-1, m-1)
+        ans = ncr(n-1, m) + ncr(n-1, m-1)
         da[n][m] = ans
     return ans
 
@@ -116,7 +131,10 @@ def totien_fun_till_n(n):
     return phi
 
 
-def fact_till_n(n, MOD):
+def factorial_till_n(n, MOD):
+    '''
+    complexity: O(n)
+    '''
     fact = [1]*(n+1)
     for i in range(1, n+1):
         fact[i] = (i * fact[i-1]) % MOD
@@ -124,7 +142,10 @@ def fact_till_n(n, MOD):
     return fact
 
 
-def inverse_fact_till_n(n, MOD):
+def inverse_factorial_till_n(n, MOD):
+    '''
+    complexity: O(n)
+    '''
     fact = fact_till_n(n, MOD)
     i_fact = [1]*(n+1)
     i_fact[n] = binpow(fact[n], MOD - 2)
@@ -136,6 +157,9 @@ def inverse_fact_till_n(n, MOD):
 
 
 def ncr_liner(n, r, MOD):
+    '''
+    complexity: O(n)
+    '''
     fact = fact_till_n(n, MOD)
     i_fact = inverse_fact_till_n(n, MOD)
     ncr = (fact[n] * (i_fact[r])) % MOD
