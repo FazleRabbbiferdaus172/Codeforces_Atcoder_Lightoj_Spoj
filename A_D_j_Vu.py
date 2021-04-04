@@ -1,12 +1,16 @@
 for _ in range(int(input())):
     s = list(input())
     x = ['a'] + s
+    x = "".join(x)
     y = s + ['a']
-    if x.reverse() != x:
+    y = "".join(y)
+    if x[::-1] != x:
         print("YES")
-        print("".join(x))
-    elif y.reverse() != y:
+        print(x)
+        #print("hey ", x, x[::-1])
+    elif y[::-1] != y:
         print("YES")
-        print("".join(y))
+        print(y)
+        #print("hey ", y, y[::-1])
     else:
         print("NO")
