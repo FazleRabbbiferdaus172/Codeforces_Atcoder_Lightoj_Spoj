@@ -1,17 +1,4 @@
-def hand(isS, ll):
-    global x
-    one_hand = False
-    for j in isS:
-        for i in ll:
-            dist = ((i[0]-j[0])**2 +
-                    (i[1]-j[1])**2)**.5
-            if dist <= x:
-                one_hand = True
-                return one_hand
-    return one_hand
-
-
-n, m, x = map(int, input().split())
+n, m, xx = map(int, input().split())
 g = []
 keyB = {}
 isS = []
@@ -24,39 +11,37 @@ q = input()
 s = input()
 
 for i in range(ord('a'), ord('z')+1):
-    keyB[chr(i)] = []
+    keyB[chr(i)] = -1
+    keyB[chr(i).upper()] = -1
 for i in range(n):
     for j in range(m):
-        if g[i][j] != 'S':
-            keyB[g[i][j]] += [(i, j)]
-        else:
+        if g[i][j] == 'S':
             isS += [(i, j)]
+
+for i in range(n):
+    for j in range(m):
+        ltr = g[i][j]
+        if ltr.islower():
+            keyB[ltr] = 0
+            ltr = ltr.upper()
+            if keyB[ltr] < 0 and len(isS) > 0:
+                keyB[ltr] = 1
+            for (x, y) in isS:
+                dist = ((x-i)**2 + (y-j)**2)**.5
+                #print("for {} dist is {} and given x is {}".format(ltr, dist, x))
+                if dist <= xx:
+                    keyB[ltr] = 0
+                    break
 # print(keyB)
-isS.sort()
+# isS.sort()
 # print(isS)
+# print(keyB)
 count = 0
 for i in s:
-    if len(keyB[i.lower()]) == 0:
+    if keyB[i] == -1:
         print(-1)
         break
-    if i.isupper() and len(isS) == 0:
-        print(-1)
-        break
-    if i.isupper() and len(isS) > 0:
-        #print("FOR: ", i)
-        '''for j in isS:
-            dist = ((keyB[i.lower()][0]-j[0])**2 +
-                    (keyB[i.lower()][1]-j[1])**2)**.5
-            print(keyB[i.lower()], j, dist)
-            if dist <= x:
-                print("YES")
-                break
-        else:
-            count += 1'''
-
-        if not hand(isS, keyB[i.lower()]):
-            count += 1
-        #print("END: ", i)
-        # print()
+    else:
+        count += keyB[i]
 else:
     print(count)
