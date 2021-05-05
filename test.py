@@ -1,6 +1,8 @@
 for _ in range(int(input())):
-    fx, fy, m = map(int, input().split())
-    if fx*fy - 1 == m:
-        print("YES")
-    else:
-        print("NO")
+    n = int(input())
+    ans = 0
+    ans = []
+    for i in range(1, n+1):
+        if len(set(list((str(i))))) == 1:
+            ans += [i]
+    print(len(ans))
