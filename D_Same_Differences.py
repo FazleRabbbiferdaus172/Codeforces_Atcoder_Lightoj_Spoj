@@ -2,11 +2,11 @@ for _ in range(int(input())):
     n = int(input())
     l = list(map(int, input().split()))
     ans = 0
+    d = {}
     for i in range(n):
-        for j in range(i+1, n):
-            temp = l[i+1:]
-            temp_x = l[i] + (j-i)
-            #print("temp_x: ", temp_x, "l[i]: ", l[i], "(j-i)", (j-i))
-            if temp_x == l[j]:
-                ans += 1
+        temp = l[i] - i
+        if not temp in d:
+            d[temp] = 0
+        ans += d[temp]
+        d[temp] += 1
     print(ans)
