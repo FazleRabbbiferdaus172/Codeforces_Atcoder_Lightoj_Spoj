@@ -4,7 +4,7 @@ for _ in range(int(input())):
     z = a*b + a
     x = a*b
     y = a
-    if b % a == 0 or a % b == 0:
+    if b == 1:
         print("NO")
     else:
         print("YES")
