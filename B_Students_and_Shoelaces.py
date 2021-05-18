@@ -5,21 +5,37 @@ def bfs(r):
 
     while q:
         temp = q.pop(0)
+        # print(temp)
+        # print(q)
+        if vis[temp] == 1:
+            continue
         vis[temp] = 1
         #print(temp, end="->")
         for i in g[temp]:
+
             if vis[i]:
                 continue
             q.append(i)
+            #vis[i] = 1
+            #print(temp, i)
+            #print(temp, i, vis[i])
             child[temp] += 1
             child[i] += 1
-    print(child)
-    x = 0
+    # print(child)
+
     if 1 in child:
-        x = max(child)
-    # print(x)
-    child = [0]*(n+1)
-    return x
+        send = 1
+    else:
+        send = 0
+
+    for i in range(1, n+1):
+        if child[i] == 1:
+            if not g[i]:
+                continue
+            x = g[i].pop()
+            g[x].remove(i)
+    # print(g)
+    return send
 
 
 n, m = map(int, input().split())
@@ -38,7 +54,10 @@ vis[0] = [-1]
 child = [0]*(n+1)
 ans = 0
 for i in range(1, n+1):
-    if not vis[i]:
-        #print("called with", i)
-        ans += bfs(i)
+    # if not vis[i]:
+    #print("called with", i)
+    vis = [0]*(n+1)
+    vis[0] = [-1]
+    child = [0]*(n+1)
+    ans += bfs(i)
 print(ans)
