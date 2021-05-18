@@ -17,8 +17,8 @@ This repository has all the problems that I have solved during or after the cont
 * [**A2OJ Ratings <= 1300**](https://a2oj.com/ladder?ID=11) and here is the
   [**_Alternate Link_**](https://codeforcesladders.firebaseapp.com/)
 
-## Youtube Link
-* (Unlucky Bird)[https://lightoj.com/problem/unlucky-bird]
-* (Heidi Learns Hashing)[https://www.youtube.com/watch?v=9fbWdoeVcIk&t=61s]
-* (SPIKES - Spiky Mazes)[https://www.youtube.com/watch?v=0UH45UBRmMA]
+## Youtube Link - Solution videos with explanation
+* [Unlucky Bird](https://lightoj.com/problem/unlucky-bird)
+* [Heidi Learns Hashing](https://www.youtube.com/watch?v=9fbWdoeVcIk&t=61s)
+* [SPIKES - Spiky Mazes](https://www.youtube.com/watch?v=0UH45UBRmMA)
 
