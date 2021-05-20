@@ -1,16 +1,3 @@
-n, m, cap = map(int, input().split())
-g = ['#'*(m+2)]
-for _ in range(n):
-    g += ['#' + input()+'#']
-g += ['#'*(m+2)]
-# print(g)
-
-move_x = [0, 0, 1, -1]
-move_y = [1, -1, 0, 0]
-
-v = [[[0]*11 for i in range(m+1)] for i in range(n+1)]
-
-
 def dfs(x, y, j):
     global v, g, move_x, move_y
     if j > 10:
@@ -27,6 +14,18 @@ def dfs(x, y, j):
             temp_j += 1
         dfs(temp_x, temp_y, temp_j)
 
+
+n, m, cap = map(int, input().split())
+g = ['#'*(m+2)]
+for _ in range(n):
+    g += ['#' + input()+'#']
+g += ['#'*(m+2)]
+# print(g)
+
+move_x = [0, 0, 1, -1]
+move_y = [1, -1, 0, 0]
+
+v = [[[0]*11 for i in range(m+1)] for i in range(n+1)]
 
 for i in range(1, n+1):
     for j in range(1, m+1):
