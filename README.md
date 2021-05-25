@@ -1,5 +1,5 @@
 ## General info
-This repository has all the problems that I have solved during or after the contest in different platforms. It also includes all ladders I have completed during practice.
+This repository has all the problems that I have solved during or after the contest in different platforms. It also includes all ladders I have completed during practice. I have also included some link to my solution videos.
 
 ## List of Platforms
 * **Codeforces**
@@ -18,7 +18,7 @@ This repository has all the problems that I have solved during or after the cont
   [**_Alternate Link_**](https://codeforcesladders.firebaseapp.com/)
 
 ## Youtube Link - Solution videos with explanation
-* [Unlucky Bird](https://lightoj.com/problem/unlucky-bird)
+* [Unlucky Bird](https://www.youtube.com/watch?v=mgLWWM8N_ro&t=154s)
 * [Heidi Learns Hashing](https://www.youtube.com/watch?v=9fbWdoeVcIk&t=61s)
 * [SPIKES - Spiky Mazes](https://www.youtube.com/watch?v=0UH45UBRmMA)
 * [Eshag Loves Big Arrays](https://youtu.be/ml_cPMVWQlg)
