@@ -22,4 +22,5 @@ This repository has all the problems that I have solved during or after the cont
 * [Heidi Learns Hashing](https://www.youtube.com/watch?v=9fbWdoeVcIk&t=61s)
 * [SPIKES - Spiky Mazes](https://www.youtube.com/watch?v=0UH45UBRmMA)
 * [Eshag Loves Big Arrays](https://youtu.be/ml_cPMVWQlg)
+* [Cousins in Binary Tree](https://youtu.be/ED6ZriWka8s)
 
