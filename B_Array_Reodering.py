@@ -1,5 +1,5 @@
 from math import gcd
-
+"""Worst performance as I didn't notice that n < 2000 and o(n^2) would have been ok. :("""
 for _ in range(int(input())):
     n = int(input())
     l = list(map(int, input().split()))
