@@ -1,4 +1,6 @@
 n, a, x, y = map(int, input().split())
-
-ans = (n-a)*y + a*x
+if n > a:
+    ans = (n-a)*y + a*x
+else:
+    ans = n*x
 print(ans)
